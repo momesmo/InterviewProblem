@@ -5,8 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4706baa9-2d60-43d8-a4cc-000ed39f7004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4706baa9-2d60-43d8-a4cc-000ed39f7004" name="Default Changelist" comment="Final Final submission push. Forgot to change the priority of elevator buttons to correlate with the">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" afterDir="false" />
@@ -39,6 +38,7 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="java" value="62" />
+          <entry key="js" value="1" />
           <entry key="properties" value="1" />
           <entry key="txt" value="4" />
         </counts>
@@ -47,21 +47,22 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="JAVA" value="62" />
+          <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="11390" />
+          <entry key="java" value="11556" />
           <entry key="properties" value="31" />
-          <entry key="txt" value="1138" />
+          <entry key="txt" value="1369" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11390" />
-          <entry key="PLAIN_TEXT" value="1138" />
+          <entry key="JAVA" value="11556" />
+          <entry key="PLAIN_TEXT" value="1369" />
           <entry key="Properties" value="31" />
         </counts>
       </usages-collector>
@@ -132,20 +133,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="60965" column="19" selection-start-line="60965" selection-start-column="19" selection-end-line="60965" selection-end-column="19" />
+            <state relative-caret-position="-298225">
+              <caret line="32324" selection-start-line="32324" selection-end-line="32324" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="106">
+              <caret line="171" column="112" selection-start-line="171" selection-start-column="112" selection-end-line="171" selection-end-column="112" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#205#235#0" expanded="true" />
@@ -165,7 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>buttonToAnswerAtNextStop</find>
       <find>setNewInstruction</find>
       <find>cycle</find>
       <find>cycleElapsed</find>
@@ -181,7 +181,6 @@
       <find>passen</find>
       <find>currentpassengers</find>
       <find>topFloor</find>
-      <find>bottom</find>
       <find>&lt; 4</find>
       <find>setnew</find>
       <find>ElevatorImpl</find>
@@ -195,6 +194,8 @@
       <find>countTrueElevatorButtons</find>
       <find>floorsToServiceSameDirectionAfter</find>
       <find>print</find>
+      <find>capac</find>
+      <find>bottom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -252,13 +253,6 @@
               <item name="elevator" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Nodal Exchange Coding" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Nodal Exchange Coding" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="elevator" type="462c0819:PsiDirectoryNode" />
-              <item name="operation" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -267,7 +261,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536695478892" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536696373309" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/log.txt" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -334,8 +328,31 @@
       <option name="project" value="LOCAL" />
       <updated>1536634795479</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final submission push. Added almost all javadoc comments, didn't add the ones that would make the file look too cluttered in the enums and such.">
+      <created>1536695486504</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536695486504</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Final submission push. Added almost all javadoc comments, didn't add the ones that would make the file look too cluttered in the enums and such.">
+      <created>1536695509796</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1536695509796</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -350,11 +367,11 @@
       <window_info id="Favorites" order="6" sideWeight="0.50161815" side_tool="true" weight="0.18176973" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.30151844" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.30151844" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
@@ -377,7 +394,8 @@
     <MESSAGE value="Going to try using an array of LinkedList for new floor commands: one array for up movement and the other for down movement. The arrays hold a LinkedList for each elevator and each list is sorted ascending for up movement and descending for down movement." />
     <MESSAGE value="Different LinkedLists mainly work except for the beginning operations since each elevator doesn't know which floor the other's are going to service so they all go to the same floors. Another aspect that doesn't seem to work is that the elevators stall since they reach capacity but continue to try to pick up more passengers without first setting priority to elevator buttons pushed." />
     <MESSAGE value="Simulation completes with a 29 - 30 cycle duration per passenger. Current algorithm prioritizes inside elevator buttons over lobby requests if there are more than 2 pressed.&#10;Can be made more efficient if I was able to keep track of number of people in each elevator and then prioritized inside elevator buttons if capacity was met." />
-    <option name="LAST_COMMIT_MESSAGE" value="Simulation completes with a 29 - 30 cycle duration per passenger. Current algorithm prioritizes inside elevator buttons over lobby requests if there are more than 2 pressed.&#10;Can be made more efficient if I was able to keep track of number of people in each elevator and then prioritized inside elevator buttons if capacity was met." />
+    <MESSAGE value="Final submission push. Added almost all javadoc comments, didn't add the ones that would make the file look too cluttered in the enums and such." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final submission push. Added almost all javadoc comments, didn't add the ones that would make the file look too cluttered in the enums and such." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/Building.java">
@@ -512,21 +530,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
+    <entry file="file://$PROJECT_DIR$/JAVADOC/jquery/jquery-ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#205#235#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="197">
+          <caret line="424" column="11" selection-start-line="424" selection-start-column="11" selection-end-line="424" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="60965" column="19" selection-start-line="60965" selection-start-column="19" selection-end-line="60965" selection-end-column="19" />
+        <state relative-caret-position="-298225">
+          <caret line="32324" selection-start-line="32324" selection-end-line="32324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="171" column="112" selection-start-line="171" selection-start-column="112" selection-end-line="171" selection-end-column="112" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#205#235#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

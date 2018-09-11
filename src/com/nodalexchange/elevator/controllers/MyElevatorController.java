@@ -155,11 +155,13 @@ public class MyElevatorController implements ElevatorController {
      * <p>
      * Each of these LinkedLists are added to in an ascending of descending fashion, depending on the current direction.
      *
+     * @param elevator Elevator object
      * @param eleNum number of the Elevator object
      * @param currentFloor current floor the Elevator object is on
      */
-    private void aggregateServicingList(int eleNum, int currentFloor){
+    private void aggregateServicingList(Elevator elevator, int eleNum, int currentFloor){
         ElevatorState intendedMovement = elevatorMovementState[eleNum];
+        int capacity = elevator.getCapacity();
         if(intendedMovement == ElevatorState.MOVINGUP){
             for(int i = 0; i < numFloors; i++) {
                 //iterate through elevatorButtonsPushed, add to ZERO list Ascending
@@ -167,7 +169,7 @@ public class MyElevatorController implements ElevatorController {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed from currentFloor to topFloor, add to ZERO list Ascending
-                if (waitingAreaUpPushed[i] && i >= currentFloor && countTrueElevatorButtons(eleNum) < 3) {
+                if (waitingAreaUpPushed[i] && i >= currentFloor && countTrueElevatorButtons(eleNum) < capacity/3) {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed, add to ONE list Descending
@@ -187,7 +189,7 @@ public class MyElevatorController implements ElevatorController {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed from currentFloor to topFloor, add to ZERO list Descending
-                if (waitingAreaDownPushed[i] && i <= currentFloor && countTrueElevatorButtons(eleNum) < 3) {
+                if (waitingAreaDownPushed[i] && i <= currentFloor && countTrueElevatorButtons(eleNum) < capacity/3) {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed, add to ONE list Ascending
@@ -233,7 +235,7 @@ public class MyElevatorController implements ElevatorController {
      */
     private void evaluateAndMove(Elevator elevator, int elevatorNumber, int currentFloor,
                                  ElevatorState currentMovementState){
-        aggregateServicingList(elevatorNumber, currentFloor);
+        aggregateServicingList(elevator, elevatorNumber, currentFloor);
         if(floorsToServiceSameDirectionAfter[elevatorNumber].size() != 0){
             int nextFloor = floorsToServiceSameDirectionAfter[elevatorNumber].pop();
             Elevator.DirectionEnum nextButtonAnswer;
