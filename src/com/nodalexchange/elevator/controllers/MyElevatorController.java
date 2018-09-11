@@ -9,6 +9,7 @@ import java.util.Vector;
 
 public class MyElevatorController implements ElevatorController {
     private enum CycleCases {INITIALIZE, COMPUTE}
+    private enum ElevatorState {MOVINGUP, MOVINGDOWN, IDLE}
     private CycleCases cycleSwitch = CycleCases.INITIALIZE;
     private int numFloors = -1;
     private int numElevators = -1;
@@ -18,22 +19,173 @@ public class MyElevatorController implements ElevatorController {
     private boolean[] waitingAreaDownPushed;
     private Elevator[] elevatorArray;
     private boolean[][] elevatorButtonsPushed;
-    private LinkedList<Integer>[] upLinkedArray;
-    private LinkedList<Integer>[] downLinkedArray;
+    private ElevatorState[] elevatorMovementState;
+    private LinkedList<Integer>[] floorsToServiceSameDirectionAfter;
+    private LinkedList<Integer>[] floorsToServiceOppositeDirection;
+    private LinkedList<Integer>[] floorsToServiceSameDirectionBefore;
+
+    private void addValueAscending(int listNum, int eleNum, int val){
+        if(listNum == 0 && !floorsToServiceSameDirectionAfter[eleNum].contains(val)){
+            int listSize = floorsToServiceSameDirectionAfter[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceSameDirectionAfter[eleNum].add(val);
+            }else if(floorsToServiceSameDirectionAfter[eleNum].get(0) > val){
+                floorsToServiceSameDirectionAfter[eleNum].add(0, val);
+            }else if(floorsToServiceSameDirectionAfter[eleNum].get(listSize - 1) < val){
+                floorsToServiceSameDirectionAfter[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceSameDirectionAfter[eleNum].get(i) < val){
+                    i++;
+                }
+                floorsToServiceSameDirectionAfter[eleNum].add(i, val);
+            }
+        }else if(listNum == 1 && !floorsToServiceOppositeDirection[eleNum].contains(val)){
+            int listSize = floorsToServiceOppositeDirection[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceOppositeDirection[eleNum].add(val);
+            }else if(floorsToServiceOppositeDirection[eleNum].get(0) > val){
+                floorsToServiceOppositeDirection[eleNum].add(0, val);
+            }else if(floorsToServiceOppositeDirection[eleNum].get(listSize - 1) < val){
+                floorsToServiceOppositeDirection[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceOppositeDirection[eleNum].get(i) < val){
+                    i++;
+                }
+                floorsToServiceOppositeDirection[eleNum].add(i, val);
+            }
+        }else if(listNum == 2 && !floorsToServiceSameDirectionBefore[eleNum].contains(val)){
+            int listSize = floorsToServiceSameDirectionBefore[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceSameDirectionBefore[eleNum].add(val);
+            }else if(floorsToServiceSameDirectionBefore[eleNum].get(0) > val){
+                floorsToServiceSameDirectionBefore[eleNum].add(0, val);
+            }else if(floorsToServiceSameDirectionBefore[eleNum].get(listSize - 1) < val){
+                floorsToServiceSameDirectionBefore[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceSameDirectionBefore[eleNum].get(i) < val){
+                    i++;
+                }
+                floorsToServiceSameDirectionBefore[eleNum].add(i, val);
+            }
+        }
+    }
+
+    private void addValueDescending(int listNum, int eleNum, int val){
+        if(listNum == 0 && !floorsToServiceSameDirectionAfter[eleNum].contains(val)){
+            int listSize = floorsToServiceSameDirectionAfter[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceSameDirectionAfter[eleNum].add(val);
+            }else if(floorsToServiceSameDirectionAfter[eleNum].get(0) < val){
+                floorsToServiceSameDirectionAfter[eleNum].add(0, val);
+            }else if(floorsToServiceSameDirectionAfter[eleNum].get(listSize - 1) > val){
+                floorsToServiceSameDirectionAfter[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceSameDirectionAfter[eleNum].get(i) > val){
+                    i++;
+                }
+                floorsToServiceSameDirectionAfter[eleNum].add(i, val);
+            }
+        }else if(listNum == 1 && !floorsToServiceOppositeDirection[eleNum].contains(val)){
+            int listSize = floorsToServiceOppositeDirection[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceOppositeDirection[eleNum].add(val);
+            }else if(floorsToServiceOppositeDirection[eleNum].get(0) < val){
+                floorsToServiceOppositeDirection[eleNum].add(0, val);
+            }else if(floorsToServiceOppositeDirection[eleNum].get(listSize - 1) > val){
+                floorsToServiceOppositeDirection[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceOppositeDirection[eleNum].get(i) > val){
+                    i++;
+                }
+                floorsToServiceOppositeDirection[eleNum].add(i, val);
+            }
+        }else if(listNum == 2 && !floorsToServiceSameDirectionBefore[eleNum].contains(val)){
+            int listSize = floorsToServiceSameDirectionBefore[eleNum].size();
+            if(listSize == 0){
+                floorsToServiceSameDirectionBefore[eleNum].add(val);
+            }else if(floorsToServiceSameDirectionBefore[eleNum].get(0) < val){
+                floorsToServiceSameDirectionBefore[eleNum].add(0, val);
+            }else if(floorsToServiceSameDirectionBefore[eleNum].get(listSize - 1) > val){
+                floorsToServiceSameDirectionBefore[eleNum].add(listSize, val);
+            }else{
+                int i = 0;
+                while(floorsToServiceSameDirectionBefore[eleNum].get(i) > val){
+                    i++;
+                }
+                floorsToServiceSameDirectionBefore[eleNum].add(i, val);
+            }
+        }
+    }
+
+    private void aggregateServicingList(int eleNum, int currentFloor){
+        ElevatorState intendedMovement = elevatorMovementState[eleNum];
+        if(intendedMovement == ElevatorState.MOVINGUP){
+            for(int i = 0; i < numFloors; i++) {
+                //iterate through elevatorButtonsPushed, add to ZERO list Ascending
+                if (elevatorButtonsPushed[eleNum][i]) {
+                    addValueAscending(0, eleNum, i);
+                }
+                //iterate through waitingAreaUpPushed from currentFloor to topFloor, add to ZERO list Ascending
+                if (waitingAreaUpPushed[i] && i >= currentFloor) {
+                    addValueAscending(0, eleNum, i);
+                }
+                //iterate through waitingAreaDownPushed, add to ONE list Descending
+                if(waitingAreaDownPushed[i]){
+                    addValueDescending(1, eleNum, i);
+                }
+                //iterate through waitingAreaUpPushed, add to TWO list Ascending
+                if (waitingAreaUpPushed[i] && i < currentFloor) {
+                    addValueAscending(2, eleNum, i);
+                }
+            }
+        }
+        if(intendedMovement == ElevatorState.MOVINGDOWN){
+            for(int i = 0; i < numFloors; i++) {
+                //iterate through elevatorButtonsPushed, add to ZERO list Descending
+                if (elevatorButtonsPushed[eleNum][i]) {
+                    addValueDescending(0, eleNum, i);
+                }
+                //iterate through waitingAreaDownPushed from currentFloor to topFloor, add to ZERO list Descending
+                if (waitingAreaDownPushed[i] && i <= currentFloor) {
+                    addValueDescending(0, eleNum, i);
+                }
+                //iterate through waitingAreaUpPushed, add to ONE list Ascending
+                if(waitingAreaUpPushed[i]){
+                    addValueAscending(1, eleNum, i);
+                }
+                //iterate through waitingAreaDownPushed, add to TWO list Descending
+                if (waitingAreaDownPushed[i] && i > currentFloor) {
+                    addValueDescending(2, eleNum, i);
+                }
+            }
+        }
+        if(intendedMovement == ElevatorState.IDLE){
+            System.out.println("-----IDLE STATE MET-----");
+        }
+        System.out.printf("Elevator %d is ", eleNum);
+        System.out.print(intendedMovement);
+        System.out.println(" and Servicing List is:");
+        System.out.println(floorsToServiceSameDirectionAfter[eleNum]);
+        System.out.println(floorsToServiceOppositeDirection[eleNum]);
+        System.out.println(floorsToServiceSameDirectionBefore[eleNum]);
+    }
 
     private void getWaitingAreaAndElevatorButtons(Building building){
         for(int i = 0; i < numFloors; i++){
             waitingAreaUpPushed[i] =  building.getElevatorWaitingAreaInfo(i).isUpButtonPushed();
             waitingAreaDownPushed[i] = building.getElevatorWaitingAreaInfo(i).isDownButtonPushed();
-            upLinkedArray[i] = new LinkedList<>();
-            downLinkedArray[i] = new LinkedList<>();
         }
         for(int i = 0; i < numElevators; i++){
             elevatorArray[i] = building.getElevator(i);
             elevatorButtonsPushed[i] = elevatorArray[i].getButtonStates();
-            evaluateAndMove(elevatorArray[i], elevatorArray[i].getCurrentFloor(),
+            evaluateAndMove(elevatorArray[i], elevatorArray[i].getElevatorNumber(), elevatorArray[i].getCurrentFloor(),
                     waitingAreaUpPushed, waitingAreaDownPushed, elevatorButtonsPushed[i],
-                    elevatorArray[i].getButtonToAnswerAtNextStop());
+                    elevatorMovementState[i]);
         }
     }
 
@@ -49,63 +201,54 @@ public class MyElevatorController implements ElevatorController {
      * @param upPushed array holding true for lobby floors with up buttons pushed
      * @param downPushed array holding true for lobby floors with down buttons pushed
      * @param floorsPushed array holding true for elevator's floor buttons pushed
-     * @param currentDirection elevator's previous direction of movement
-     * @return void
+     * @param currentMovementState ElevatorState enum designating current movement state
      */
-    private void evaluateAndMove(Elevator elevator, int currentFloor, boolean[] upPushed,
-                                 boolean[] downPushed, boolean[] floorsPushed, Elevator.DirectionEnum currentDirection){
-        int nextFloor = -1;
-        Elevator.DirectionEnum nextDirection = currentDirection;
-        if(currentFloor == topFloor){ //on the top floor
-            nextDirection = Elevator.DirectionEnum.DOWN;
-            for(int i = topFloor; i > bottomFloor; i--){
-                if(downPushed[i]){
-                    nextFloor = i;
-                    break;
+    private void evaluateAndMove(Elevator elevator, int elevatorNumber, int currentFloor, boolean[] upPushed, boolean[] downPushed,
+                                 boolean[] floorsPushed, ElevatorState currentMovementState){
+        aggregateServicingList(elevatorNumber, currentFloor);
+        if(floorsToServiceSameDirectionAfter[elevatorNumber].size() != 0){
+            int nextFloor = floorsToServiceSameDirectionAfter[elevatorNumber].pop();
+            Elevator.DirectionEnum nextButtonAnswer;
+            if(currentMovementState == ElevatorState.MOVINGUP){
+                nextButtonAnswer = Elevator.DirectionEnum.UP;
+            }else{
+                nextButtonAnswer = Elevator.DirectionEnum.DOWN;
+            }
+            elevator.setNewInstruction(nextFloor, nextButtonAnswer);
+        }else if(floorsToServiceOppositeDirection[elevatorNumber].size() != 0){
+            int nextFloor = floorsToServiceOppositeDirection[elevatorNumber].pop();
+            Elevator.DirectionEnum nextButtonAnswer;
+            if(currentMovementState == ElevatorState.MOVINGUP){
+                nextButtonAnswer =  Elevator.DirectionEnum.DOWN;
+                if(nextFloor - currentFloor > 0){
+                    elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGUP;
+                }else{
+                    elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGDOWN;
                 }
-            }
-            if(nextFloor == -1){
-                nextDirection = Elevator.DirectionEnum.UP;
-                for(int i = bottomFloor; i < topFloor; i++){
-                    if(upPushed[i]){
-                        nextFloor = i;
-                        break;
-                    }
+            }else{
+                nextButtonAnswer = Elevator.DirectionEnum.UP;
+                if(nextFloor - currentFloor < 0){
+                    elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGDOWN;
+                }else{
+                    elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGUP;
                 }
+                elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGUP;
             }
-            if(nextFloor == -1){
-                elevator.setNewInstruction(currentFloor, currentDirection);
+            elevator.setNewInstruction(nextFloor, nextButtonAnswer);
+        }else if(floorsToServiceSameDirectionBefore[elevatorNumber].size() != 0){
+            int nextFloor = floorsToServiceSameDirectionBefore[elevatorNumber].pop();
+            Elevator.DirectionEnum nextButtonAnswer;
+            if(currentMovementState == ElevatorState.MOVINGUP){
+                nextButtonAnswer = Elevator.DirectionEnum.UP;
+                elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGDOWN;
+            }else{
+                nextButtonAnswer = Elevator.DirectionEnum.DOWN;
+                elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGUP;
             }
-        } else if(currentFloor == bottomFloor){ //on the bottom floor
-            nextDirection = Elevator.DirectionEnum.UP;
-            for(int i = bottomFloor; i < topFloor; i++){
-                if(upPushed[i]){
-                    nextFloor = i;
-                    break;
-                }
-            }
-            if(nextFloor == -1){
-                nextDirection = Elevator.DirectionEnum.DOWN;
-                for(int i = topFloor; i > bottomFloor; i--){
-                    if(downPushed[i]){
-                        nextFloor = i;
-                        break;
-                    }
-                }
-            }
-            if(nextFloor == -1){
-                elevator.setNewInstruction(currentFloor, currentDirection);
-            }
-        } else{ //somewhere in between
-
+            elevator.setNewInstruction(nextFloor, nextButtonAnswer);
+        }else{
+            elevatorMovementState[elevatorNumber] = ElevatorState.IDLE;
         }
-
-        //
-        elevator.setNewInstruction(nextFloor, nextDirection);
-//        System.out.printf("Elevator %d, Floor %d, Moving %s, with these buttons pushed:\n%s\n" +
-//                "Waiting to go up: %s\nWaiting to go down: %s\n\n", elevatorNumber, currentFloor,
-//                String.valueOf(direction), Arrays.toString(floorsPushed), Arrays.toString(upPushed),
-//                Arrays.toString(downPushed));
     }
 
     public void cycleElapsed(Building building) {
@@ -119,12 +262,20 @@ public class MyElevatorController implements ElevatorController {
                 waitingAreaDownPushed = new boolean[numFloors];
                 elevatorArray = new Elevator[numElevators];
                 elevatorButtonsPushed = new boolean[numElevators][numFloors];
-                upLinkedArray = new LinkedList[numElevators];
-                downLinkedArray = new LinkedList[numElevators];
+                elevatorMovementState = new ElevatorState[numElevators];
+                floorsToServiceSameDirectionAfter = new LinkedList[numElevators];
+                floorsToServiceOppositeDirection = new LinkedList[numElevators];
+                floorsToServiceSameDirectionBefore = new LinkedList[numElevators];
+                for(int i = 0; i < numElevators; i++){
+                    elevatorMovementState[i] = ElevatorState.MOVINGUP;
+                    floorsToServiceSameDirectionAfter[i] = new LinkedList<>();
+                    floorsToServiceOppositeDirection[i] = new LinkedList<>();
+                    floorsToServiceSameDirectionBefore[i] = new LinkedList<>();
+                }
                 cycleSwitch = CycleCases.COMPUTE;
             case COMPUTE:
+                System.out.println();
                 getWaitingAreaAndElevatorButtons(building);
-
                 break;
         }
     }
