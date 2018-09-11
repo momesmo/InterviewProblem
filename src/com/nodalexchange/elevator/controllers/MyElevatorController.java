@@ -4,6 +4,16 @@ import com.nodalexchange.elevator.*;
 import java.util.LinkedList;
 
 /** Represents an ElevatorController
+ * <p>
+ * Approach Taken: The controller is based off of the elevator algorithm, also known as SCAN, which is used in disk
+ * scheduling to help maintain read and write requests to a hard drive. The direction of the object will stay the same
+ * as long as it receives requests in the direction. The object will service all of these requests until there are no
+ * more in that direction or it has reached the edge and then it will change to the opposite direction.
+ * <p>
+ * Future Note: The Elevator object needs a mechanism to keep track of the current passenger count on the elevator so
+ * the priority of it can change from picking up and dropping off to solely dropping off until the elevator has more
+ * space for new passengers. In order to account for this missing aspect the elevator prioritizes when a third of the
+ * capacity is met by the number of floors selected in the elevator. This works but isn't the true fix.
  * @author Anup Jasani
  * @version 1.0
  */
@@ -155,13 +165,12 @@ public class MyElevatorController implements ElevatorController {
      * <p>
      * Each of these LinkedLists are added to in an ascending of descending fashion, depending on the current direction.
      *
-     * @param elevator Elevator object
+     * @param capacity Elevator object's capacity size
      * @param eleNum number of the Elevator object
      * @param currentFloor current floor the Elevator object is on
      */
-    private void aggregateServicingList(Elevator elevator, int eleNum, int currentFloor){
+    private void aggregateServicingList(int capacity, int eleNum, int currentFloor){
         ElevatorState intendedMovement = elevatorMovementState[eleNum];
-        int capacity = elevator.getCapacity();
         if(intendedMovement == ElevatorState.MOVINGUP){
             for(int i = 0; i < numFloors; i++) {
                 //iterate through elevatorButtonsPushed, add to ZERO list Ascending
@@ -235,7 +244,7 @@ public class MyElevatorController implements ElevatorController {
      */
     private void evaluateAndMove(Elevator elevator, int elevatorNumber, int currentFloor,
                                  ElevatorState currentMovementState){
-        aggregateServicingList(elevator, elevatorNumber, currentFloor);
+        aggregateServicingList(elevator.getCapacity(), elevatorNumber, currentFloor);
         if(floorsToServiceSameDirectionAfter[elevatorNumber].size() != 0){
             int nextFloor = floorsToServiceSameDirectionAfter[elevatorNumber].pop();
             Elevator.DirectionEnum nextButtonAnswer;
