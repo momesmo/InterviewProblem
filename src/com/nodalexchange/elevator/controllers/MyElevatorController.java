@@ -1,20 +1,14 @@
 package com.nodalexchange.elevator.controllers;
 
 import com.nodalexchange.elevator.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Vector;
 
 public class MyElevatorController implements ElevatorController {
     private enum CycleCases {INITIALIZE, COMPUTE}
-    private enum ElevatorState {MOVINGUP, MOVINGDOWN, IDLE}
+    private enum ElevatorState {MOVINGUP, MOVINGDOWN}
     private CycleCases cycleSwitch = CycleCases.INITIALIZE;
     private int numFloors = -1;
     private int numElevators = -1;
-    private int topFloor = -1;
-    private int bottomFloor = -1;
     private boolean[] waitingAreaUpPushed;
     private boolean[] waitingAreaDownPushed;
     private Elevator[] elevatorArray;
@@ -122,6 +116,16 @@ public class MyElevatorController implements ElevatorController {
         }
     }
 
+    private int countTrueElevatorButtons(int eleNum){
+        int count = 0;
+        for (boolean buttonForFloor: elevatorButtonsPushed[eleNum]) {
+            if(buttonForFloor){
+                count++;
+            }
+        }
+        return count;
+    }
+
     private void aggregateServicingList(int eleNum, int currentFloor){
         ElevatorState intendedMovement = elevatorMovementState[eleNum];
         if(intendedMovement == ElevatorState.MOVINGUP){
@@ -131,11 +135,11 @@ public class MyElevatorController implements ElevatorController {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed from currentFloor to topFloor, add to ZERO list Ascending
-                if (waitingAreaUpPushed[i] && i >= currentFloor) {
+                if (waitingAreaUpPushed[i] && i >= currentFloor && countTrueElevatorButtons(eleNum) < 3) {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed, add to ONE list Descending
-                if(waitingAreaDownPushed[i]){
+                if (waitingAreaDownPushed[i]) {
                     addValueDescending(1, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed, add to TWO list Ascending
@@ -151,11 +155,11 @@ public class MyElevatorController implements ElevatorController {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed from currentFloor to topFloor, add to ZERO list Descending
-                if (waitingAreaDownPushed[i] && i <= currentFloor) {
+                if (waitingAreaDownPushed[i] && i <= currentFloor && countTrueElevatorButtons(eleNum) < 3) {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed, add to ONE list Ascending
-                if(waitingAreaUpPushed[i]){
+                if (waitingAreaUpPushed[i]) {
                     addValueAscending(1, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed, add to TWO list Descending
@@ -163,9 +167,6 @@ public class MyElevatorController implements ElevatorController {
                     addValueDescending(2, eleNum, i);
                 }
             }
-        }
-        if(intendedMovement == ElevatorState.IDLE){
-            System.out.println("-----IDLE STATE MET-----");
         }
         System.out.printf("Elevator %d is ", eleNum);
         System.out.print(intendedMovement);
@@ -184,7 +185,6 @@ public class MyElevatorController implements ElevatorController {
             elevatorArray[i] = building.getElevator(i);
             elevatorButtonsPushed[i] = elevatorArray[i].getButtonStates();
             evaluateAndMove(elevatorArray[i], elevatorArray[i].getElevatorNumber(), elevatorArray[i].getCurrentFloor(),
-                    waitingAreaUpPushed, waitingAreaDownPushed, elevatorButtonsPushed[i],
                     elevatorMovementState[i]);
         }
     }
@@ -197,14 +197,12 @@ public class MyElevatorController implements ElevatorController {
      * wanting to go in the same direction. So first check the current direction of movement, check the buttons
      *
      * @param elevator Elevator object to be given new instruction
-     * @param currentFloor resident floor of elevator
-     * @param upPushed array holding true for lobby floors with up buttons pushed
-     * @param downPushed array holding true for lobby floors with down buttons pushed
-     * @param floorsPushed array holding true for elevator's floor buttons pushed
+     * @param elevatorNumber Elevator object's assigned integer id
+     * @param currentFloor resident floor of Elevator object
      * @param currentMovementState ElevatorState enum designating current movement state
      */
-    private void evaluateAndMove(Elevator elevator, int elevatorNumber, int currentFloor, boolean[] upPushed, boolean[] downPushed,
-                                 boolean[] floorsPushed, ElevatorState currentMovementState){
+    private void evaluateAndMove(Elevator elevator, int elevatorNumber, int currentFloor,
+                                 ElevatorState currentMovementState){
         aggregateServicingList(elevatorNumber, currentFloor);
         if(floorsToServiceSameDirectionAfter[elevatorNumber].size() != 0){
             int nextFloor = floorsToServiceSameDirectionAfter[elevatorNumber].pop();
@@ -246,8 +244,6 @@ public class MyElevatorController implements ElevatorController {
                 elevatorMovementState[elevatorNumber] = ElevatorState.MOVINGUP;
             }
             elevator.setNewInstruction(nextFloor, nextButtonAnswer);
-        }else{
-            elevatorMovementState[elevatorNumber] = ElevatorState.IDLE;
         }
     }
 
@@ -256,8 +252,6 @@ public class MyElevatorController implements ElevatorController {
             case INITIALIZE:
                 numElevators = building.getNumberOfElevators();
                 numFloors = building.getNumberOfFloors();
-                topFloor = numFloors - 1;
-                bottomFloor = 0;
                 waitingAreaUpPushed = new boolean[numFloors];
                 waitingAreaDownPushed = new boolean[numFloors];
                 elevatorArray = new Elevator[numElevators];
