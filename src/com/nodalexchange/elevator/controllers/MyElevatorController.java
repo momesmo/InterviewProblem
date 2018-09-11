@@ -14,6 +14,7 @@ import java.util.LinkedList;
  * the priority of it can change from picking up and dropping off to solely dropping off until the elevator has more
  * space for new passengers. In order to account for this missing aspect the elevator prioritizes when a third of the
  * capacity is met by the number of floors selected in the elevator. This works but isn't the true fix.
+ *
  * @author Anup Jasani
  * @version 1.0
  */
