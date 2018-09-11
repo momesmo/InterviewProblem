@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4706baa9-2d60-43d8-a4cc-000ed39f7004" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$CycleCases.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$CycleCases.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,20 +25,20 @@
     <session id="-57499617">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="61" />
+          <entry key="java" value="62" />
           <entry key="properties" value="1" />
           <entry key="txt" value="4" />
         </counts>
@@ -38,22 +46,22 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="61" />
+          <entry key="JAVA" value="62" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="9082" />
+          <entry key="java" value="11390" />
           <entry key="properties" value="31" />
-          <entry key="txt" value="778" />
+          <entry key="txt" value="1138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9082" />
-          <entry key="PLAIN_TEXT" value="778" />
+          <entry key="JAVA" value="11390" />
+          <entry key="PLAIN_TEXT" value="1138" />
           <entry key="Properties" value="31" />
         </counts>
       </usages-collector>
@@ -69,6 +77,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
               <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/BuildingImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-757">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -106,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/SystemLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="294">
               <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -115,20 +132,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/log.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1968026">
-              <caret line="10817" column="61" selection-start-line="10817" selection-start-column="61" selection-end-line="10817" selection-end-column="61" />
+            <state relative-caret-position="472">
+              <caret line="60965" column="19" selection-start-line="60965" selection-start-column="19" selection-end-line="60965" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            <state relative-caret-position="210">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#205#235#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,13 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getNextStop</find>
-      <find>nextStop</find>
-      <find>waitingAreaUpPushed</find>
-      <find>direction</find>
-      <find>getElevatorWaitingAreaInfo</find>
-      <find>print</find>
-      <find>getButtonToAnswerAtNextStop</find>
       <find>buttonToAnswerAtNextStop</find>
       <find>setNewInstruction</find>
       <find>cycle</find>
@@ -174,6 +188,13 @@
       <find>Building</find>
       <find>capacity</find>
       <find>idle</find>
+      <find>lobb</find>
+      <find>elevatorarray</find>
+      <find>elevatorArray</find>
+      <find>elevator e</find>
+      <find>countTrueElevatorButtons</find>
+      <find>floorsToServiceSameDirectionAfter</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,6 +225,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,13 +263,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536626156008" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536695417549" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/log.txt" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -306,14 +327,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536627151761</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Simulation completes with a 29 - 30 cycle duration per passenger. Current algorithm prioritizes inside elevator buttons over lobby requests if there are more than 2 pressed.&#10;Can be made more efficient if I was able to keep track of number of people in each elevator and then prioritized inside elevator buttons if capacity was met.">
+      <created>1536634795479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1536634795479</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.1433902" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.14658849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -348,7 +376,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Going to try using an array of LinkedList for new floor commands: one array for up movement and the other for down movement. The arrays hold a LinkedList for each elevator and each list is sorted ascending for up movement and descending for down movement." />
     <MESSAGE value="Different LinkedLists mainly work except for the beginning operations since each elevator doesn't know which floor the other's are going to service so they all go to the same floors. Another aspect that doesn't seem to work is that the elevators stall since they reach capacity but continue to try to pick up more passengers without first setting priority to elevator buttons pushed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Different LinkedLists mainly work except for the beginning operations since each elevator doesn't know which floor the other's are going to service so they all go to the same floors. Another aspect that doesn't seem to work is that the elevators stall since they reach capacity but continue to try to pick up more passengers without first setting priority to elevator buttons pushed." />
+    <MESSAGE value="Simulation completes with a 29 - 30 cycle duration per passenger. Current algorithm prioritizes inside elevator buttons over lobby requests if there are more than 2 pressed.&#10;Can be made more efficient if I was able to keep track of number of people in each elevator and then prioritized inside elevator buttons if capacity was met." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simulation completes with a 29 - 30 cycle duration per passenger. Current algorithm prioritizes inside elevator buttons over lobby requests if there are more than 2 pressed.&#10;Can be made more efficient if I was able to keep track of number of people in each elevator and then prioritized inside elevator buttons if capacity was met." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/Building.java">
@@ -404,10 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5019">
           <caret line="328" column="15" selection-start-line="328" selection-start-column="15" selection-end-line="328" selection-end-column="15" />
-          <folding>
-            <element signature="e#8874#8875#0" expanded="true" />
-            <element signature="e#8901#8902#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -415,6 +440,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/BuildingFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/ElevatorControllerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/ElevatorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="18" column="48" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/SystemLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -442,6 +498,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/BuildingImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-757">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/ElevatorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -449,62 +512,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/BuildingFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/BuildingImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="16" />
-          <folding>
-            <element signature="e#3121#3122#0" expanded="true" />
-            <element signature="e#3156#3157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/ElevatorControllerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/ElevatorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="e#746#757#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/SystemLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="210">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#205#235#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1968026">
-          <caret line="10817" column="61" selection-start-line="10817" selection-start-column="61" selection-end-line="10817" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        <state relative-caret-position="472">
+          <caret line="60965" column="19" selection-start-line="60965" selection-start-column="19" selection-end-line="60965" selection-end-column="19" />
         </state>
       </provider>
     </entry>
