@@ -173,8 +173,6 @@ public class MyElevatorController implements ElevatorController {
     private void aggregateServicingList(int capacity, int eleNum, int currentFloor){
         ElevatorState intendedMovement = elevatorMovementState[eleNum];
         int comparedTo = capacity * numElevators / numFloors - 1;
-        if(comparedTo <= 0) comparedTo = 0;
-        comparedTo = 5;
         System.out.printf("ComparedTo Value %d\n", comparedTo);
         if(intendedMovement == ElevatorState.MOVINGUP){
             for(int i = 0; i < numFloors; i++) {

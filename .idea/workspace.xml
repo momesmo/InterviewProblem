@@ -5,12 +5,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4706baa9-2d60-43d8-a4cc-000ed39f7004" name="Default Changelist" comment="">
+    <list default="true" id="4706baa9-2d60-43d8-a4cc-000ed39f7004" name="Default Changelist" comment="TODO: edit comparedTo equation so elevator priority works for all situations. Currently working on using Excel to find the best fit equation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$CycleCases.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController$CycleCases.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Nodal Exchange Coding/com/nodalexchange/elevator/controllers/MyElevatorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comparedToTesting.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/comparedToTesting.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,12 +25,12 @@
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -56,15 +53,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="12888" />
+          <entry key="java" value="12931" />
           <entry key="properties" value="31" />
-          <entry key="txt" value="1486" />
+          <entry key="txt" value="1651" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12888" />
-          <entry key="PLAIN_TEXT" value="1486" />
+          <entry key="JAVA" value="12931" />
+          <entry key="PLAIN_TEXT" value="1651" />
           <entry key="Properties" value="31" />
         </counts>
       </usages-collector>
@@ -126,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/SystemLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
+            <state relative-caret-position="210">
               <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -137,16 +134,14 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
+            <state relative-caret-position="378">
+              <caret line="180" column="52" lean-forward="true" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -225,6 +220,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,13 +245,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536965005525" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537042280465" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -282,7 +277,7 @@
       <output_file path="$PROJECT_DIR$/log.txt" />
       <option name="MAIN_CLASS_NAME" value="com.nodalexchange.elevator.operation.SystemLauncher" />
       <module name="Nodal Exchange Coding" />
-      <option name="PROGRAM_PARAMETERS" value="30 4 10 3 com.nodalexchange.elevator.operation.RandomPassengerGenerator com.nodalexchange.elevator.controllers.MyElevatorController 2500" />
+      <option name="PROGRAM_PARAMETERS" value="25 2 5 3 com.nodalexchange.elevator.operation.RandomPassengerGenerator com.nodalexchange.elevator.controllers.MyElevatorController 2500" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -355,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536697321415</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="TODO: edit comparedTo equation so elevator priority works for all situations. Currently working on using Excel to find the best fit equation.">
+      <created>1537037927973</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1537037927973</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -371,7 +373,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.12473348" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.12579957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -380,8 +382,8 @@
       <window_info id="Favorites" order="6" sideWeight="0.50161815" side_tool="true" weight="0.18176973" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.31236443" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.31236443" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
@@ -411,7 +413,8 @@
     <MESSAGE value="Final Final submission push. Forgot to change the priority of elevator buttons to correlate with the elevator's capacity." />
     <MESSAGE value="Final Final Final submission push. Small changes. Added the description above the class." />
     <MESSAGE value="Added comment tweak" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comment tweak" />
+    <MESSAGE value="TODO: edit comparedTo equation so elevator priority works for all situations. Currently working on using Excel to find the best fit equation." />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: edit comparedTo equation so elevator priority works for all situations. Currently working on using Excel to find the best fit equation." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/Building.java">
@@ -545,7 +548,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/operation/SystemLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="210">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -554,14 +557,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nodalexchange/elevator/controllers/MyElevatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="176" column="22" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
+        <state relative-caret-position="378">
+          <caret line="180" column="52" lean-forward="true" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
