@@ -172,6 +172,10 @@ public class MyElevatorController implements ElevatorController {
      */
     private void aggregateServicingList(int capacity, int eleNum, int currentFloor){
         ElevatorState intendedMovement = elevatorMovementState[eleNum];
+        int comparedTo = capacity * numElevators / numFloors - 1;
+        if(comparedTo <= 0) comparedTo = 0;
+        comparedTo = 5;
+        System.out.printf("ComparedTo Value %d\n", comparedTo);
         if(intendedMovement == ElevatorState.MOVINGUP){
             for(int i = 0; i < numFloors; i++) {
                 //iterate through elevatorButtonsPushed, add to ZERO list Ascending
@@ -179,7 +183,8 @@ public class MyElevatorController implements ElevatorController {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed from currentFloor to topFloor, add to ZERO list Ascending
-                if (waitingAreaUpPushed[i] && i >= currentFloor && countTrueElevatorButtons(eleNum) < capacity/3) {
+                if (waitingAreaUpPushed[i] && i >= currentFloor && (countTrueElevatorButtons(eleNum) == 0 ||
+                        countTrueElevatorButtons(eleNum) < comparedTo )) {
                     addValueAscending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed, add to ONE list Descending
@@ -199,7 +204,8 @@ public class MyElevatorController implements ElevatorController {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaDownPushed from currentFloor to topFloor, add to ZERO list Descending
-                if (waitingAreaDownPushed[i] && i <= currentFloor && countTrueElevatorButtons(eleNum) < capacity/3) {
+                if (waitingAreaDownPushed[i] && i <= currentFloor && (countTrueElevatorButtons(eleNum) == 0 ||
+                        countTrueElevatorButtons(eleNum) < comparedTo )) {
                     addValueDescending(0, eleNum, i);
                 }
                 //iterate through waitingAreaUpPushed, add to ONE list Ascending
@@ -212,6 +218,12 @@ public class MyElevatorController implements ElevatorController {
                 }
             }
         }
+        System.out.printf("Elevator %d is ", eleNum);
+        System.out.print(intendedMovement);
+        System.out.println(" and Servicing List is:");
+        System.out.println(floorsToServiceSameDirectionAfter[eleNum]);
+        System.out.println(floorsToServiceOppositeDirection[eleNum]);
+        System.out.println(floorsToServiceSameDirectionBefore[eleNum]);
     }
 
     /** Puts lobby button data into boolean[] and grabs essential Elevator data.
@@ -316,6 +328,7 @@ public class MyElevatorController implements ElevatorController {
                 }
                 cycleSwitch = CycleCases.COMPUTE;
             case COMPUTE:
+                System.out.println();
                 getWaitingAreaAndElevatorButtons(building);
                 break;
         }
